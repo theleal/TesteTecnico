@@ -1,0 +1,48 @@
+﻿@model CrudConteiners.Models.Relatorio.RelatorioViewModel
+
+@{
+    ViewData["Title"] = "Relatório";
+}
+
+<h1>Relatório</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>Categoria</th>
+            <th>Tipo de Movimentação</th>
+            <th>Total de Movimentações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detalhe in Model.Detalhes)
+        {
+            <tr>
+                <td>@detalhe.Cliente</td>
+                <td>@detalhe.Categoria</td>
+                <td>@detalhe.TipoMovimentacao</td>
+                <td>@detalhe.TotalMovimentacoes</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Categoria</th>
+            <th>Total de Movimentações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.Sumario)
+        {
+            <tr>
+                <td>@item.Categoria</td>
+                <td>@item.TotalMovimentacoes</td>
+            </tr>    
+        }
+    </tbody>
+
+</table>
